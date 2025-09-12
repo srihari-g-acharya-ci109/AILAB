@@ -1,6 +1,6 @@
-w1=int(input("Enter Weight 1:"))
-w2=int(input("Enter Weight 2:"))
-t=int(input("Enter threshold:"))
+w1=1
+w2=1
+t=2
 
 values=[0,1]
 
