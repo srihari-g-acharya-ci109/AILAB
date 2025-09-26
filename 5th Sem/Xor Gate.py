@@ -1,4 +1,4 @@
-
+#xor
 def andgate(x1, x2):
     return 1 if (x1 + x2) >= 2 else 0
 
