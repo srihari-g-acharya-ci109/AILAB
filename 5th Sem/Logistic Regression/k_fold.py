@@ -1,7 +1,8 @@
-from sklearn.model_selection import KFold, cross_val_score
+from sklearn.model_selection import KFold, cross_val_score, cross_val_predict
 import pandas as pd
 from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import LabelEncoder
+from sklearn.metrics import confusion_matrix 
 
 df = pd.read_csv(r"C:\Users\sriha\OneDrive\Documents\GitHub\College\AILAB\5th Sem\Logistic Regression\dummy_dataset_5200.csv")
 
@@ -19,7 +20,16 @@ print("K-Fold Accuracies:", scores)
 print("Average Accuracy:", scores.mean())
 
 
+
 model.fit(X, y)
+
+
+y_pred_cv = cross_val_predict(model, X, y, cv=kf)
+
+cm = confusion_matrix(y, y_pred_cv)
+print("\nConfusion Matrix (from 5-Fold CV Predictions):")
+print(cm)
+
 
 sample_data = pd.DataFrame([[35, 1, 50000]], columns=["Age", "Gender", "AccountBalance"])
 sample_prediction = model.predict(sample_data)
