@@ -42,6 +42,8 @@ cm = confusion_matrix(y_test, y_pred_classes)
 plt.figure(figsize=(8,6))
 sns.heatmap(cm, annot=True, fmt='d', cmap='Blues')
 plt.title("Confusion Matrix")
+
+
 plt.xlabel("Predicted Label")
 plt.ylabel("True Label")
 plt.show()
